@@ -58,31 +58,31 @@ backend s_tiger_2 {
   .port = "80";
 }
 vcl_init {	# 创建后端主机组，即directors
-  new web_xpj = directors.random();
+  new web_xpj = directors.round_robin();
   web_xpj.add_backend(s_xpj_1);
   web_xpj.add_backend(s_xpj_2);
   
-  new web_dzyy = directors.random();
+  new web_dzyy = directors.round_robin();
   web_dzyy.add_backend(s_ahui_1);
   web_dzyy.add_backend(s_ahui_2);
   
-  new web_dzyy = directors.random();
+  new web_dzyy = directors.round_robin();
   web_dzyy.add_backend(s_88net_1);
   web_dzyy.add_backend(s_88net_2);
   
-  new web_dzyy = directors.random();
+  new web_dzyy = directors.round_robin();
   web_dzyy.add_backend(s_huahua_1);
   web_dzyy.add_backend(s_huahua_2);
   
-  new web_dzyy = directors.random();
+  new web_dzyy = directors.round_robin();
   web_dzyy.add_backend(s_lpj_1);
   web_dzyy.add_backend(s_lpj_2);
   
-  new web_dzyy = directors.random();
+  new web_dzyy = directors.round_robin();
   web_dzyy.add_backend(s_cat_1);
   web_dzyy.add_backend(s_cat_2);
   
-  new web_dzyy = directors.random();
+  new web_dzyy = directors.round_robin();
   web_dzyy.add_backend(s_tiger_2);
   web_dzyy.add_backend(s_tiger_2);
 }
